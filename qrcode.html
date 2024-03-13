@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de QR Code</title>
+    <script src="./qrcode.min.js"></script>
+
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f3f3f3;
+        }
+        #qrForm{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: solid 1px #000;
+            padding: 50px;
+        }
+        #qrcode{
+            margin-top: 30px;
+        }
+        input{
+            width: 200px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            font-family: Arial;
+            font-size: 14px;
+        }
+        h2{
+            font-family: Arial;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        label{
+            font-family: Arial;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+        }
+        button{
+            font-family: Arial;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 16px;
+            width: 100%;
+            background-color: #ccc;
+            border: none;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #000;
+            color: #fff;
+        }
+
+        #downloadButton{
+            font-family: Arial;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 16px;
+            width: 260px;
+            background-color: #ccc;
+            border: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>QR Code Generator</h2>
+    <form id="qrForm">
+        <label for="text">Texto:</label>
+        <input type="text" id="text" name="text">
+        <button type="button" onclick="generateQRCode()">Generate QR Code</button>
+    </form>
+    <div id="qrcode"></div>
+    <div class="button__qr">
+        <button id="downloadButton" style="display: none;" onclick="downloadQRCode()">Download QR Code</button>
+    </div>
+    
+
+    <script>
+        function generateQRCode() {
+            var text = document.getElementById('text').value;
+            var qrCodeDiv = document.getElementById('qrcode');
+
+            // Limpa o conteúdo anterior, se houver
+            qrCodeDiv.innerHTML = '';
+
+            // Cria o QR Code
+            var qr = new QRCode(qrCodeDiv, {
+                text: text,
+                width: 256,
+                height: 256,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Exibe o botão de download
+            document.getElementById('downloadButton').style.display = 'block';
+        }
+
+        function downloadQRCode() {
+            // Obtém o conteúdo da imagem do QR code
+            var qrCodeImage = document.querySelector('canvas').toDataURL("image/png");
+
+            // Cria um link temporário para o download
+            var link = document.createElement('a');
+            link.download = 'qrcode.png';
+            link.href = qrCodeImage;
+
+            // Simula um clique no link para iniciar o download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
