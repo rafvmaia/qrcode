@@ -38,6 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             // Registration successful
             echo "Registration successful";
+            // Redirect to index.html after successful registration
+            header("Location: index.php");
+            exit();
         } else {
             echo "Error occurred";
         }

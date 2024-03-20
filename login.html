@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f3f3f3;
+        }
+        #loginContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: solid 1px #000;
+            padding: 50px;
+            width: 300px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 20px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            font-family: Arial;
+            font-size: 14px;
+        }
+        input[type="password"]{
+            width: 300px;
+            padding: 20px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            font-family: Arial;
+            font-size: 14px;
+        }
+        h2{
+            font-family: Arial;
+            font-size: 30px;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+        }
+        label{
+            display: flex;
+            flex-direction: column;
+            font-family: Arial;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+        }
+        button{
+            font-family: Arial;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 20px;
+            width: 100%;
+            background-color: #000;
+            border: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: #fff;
+            margin-top: 10px;
+        }
+        button:hover{
+            background-color: #ffffff;
+            color: #000;
+            border: 1px solid #000;
+        }
+        .logo{
+            width: 70px;
+            padding-top: 30px;
+        }
+        .col1{
+            width: 100%;
+        }
+        @media (max-width: 360px){
+            body{
+                width: auto;
+                overflow: hidden;
+            }
+            .logo{
+                width: 80px;
+            }
+            #loginContainer{
+                width: auto;
+                overflow: hidden;
+            }
+            input[type="text"]{
+                width: auto;
+            }
+            input[type="password"]{
+                width: auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="loginContainer">
+        <picture>
+            <img src="images/Tentpeg_Logo_outlines.png" alt="Tentpeg Logo" class="logo">
+        </picture>
+        <h2>Login</h2>
+        <form method="post" action="login.php">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <!-- Your remaining HTML code here -->
+</body>
+</html>
