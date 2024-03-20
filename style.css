@@ -40,14 +40,17 @@ button{
     font-weight: bold;
     padding: 16px;
     width: 100%;
-    background-color: #ccc;
+    background-color: #000;
+    color: #fff;
     border: none;
     text-transform: uppercase;
     cursor: pointer;
+    border: 1px solid #000;
 }
 button:hover{
-    background-color: #000;
-    color: #fff;
+    background-color: #ccc;
+    color: #000;
+    border: 1px solid #000;
 }
 
 #downloadButton{
@@ -56,12 +59,19 @@ button:hover{
     font-weight: bold;
     padding: 16px;
     width: 260px;
-    background-color: #ccc;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
     border: none;
     text-transform: uppercase;
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 30px;
+}
+#downloadButton:hover{
+    background-color: #ccc;
+    color: #000;
+    border: 1px solid #000;
 }
 .logo{
     width: 70px;
@@ -77,4 +87,19 @@ button:hover{
     #qrcode{
         width: auto;
     }
+}
+
+.logout{
+    padding: 10px;
+}
+.logout a{
+    text-decoration: none;
+    color: #000;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.logout a:hover{
+    text-decoration: underline;
 }

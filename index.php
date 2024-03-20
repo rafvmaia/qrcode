@@ -18,6 +18,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="logout">
+        <a href="logout.php" class="logout">Logout</a>
+    </div>
     <picture>
         <img src="images/Tentpeg_Logo_outlines.png" alt="Tentpeg Logo" class="logo">
     </picture>
